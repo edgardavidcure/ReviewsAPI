@@ -13,7 +13,7 @@ router.get(
     try {
       const jwtToken = generateToken(req.user);
       res.cookie("jwt", jwtToken, {
-        httpOnly: true,
+        httpOnly: false,
         maxAge: 1 * 60 * 60 * 1000,
       });
       res.redirect("http://localhost:5173/dashboard/index.html");

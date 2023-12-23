@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 function generateToken(user) {
   const payload = {
-    userId: user._id,
+    userId: user.googleId,
     displayName: user.displayName,
     firstName: user.firstName,
     lastName: user.lastName,
