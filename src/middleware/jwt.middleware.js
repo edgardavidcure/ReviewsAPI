@@ -1,3 +1,4 @@
+const config = require("../../src/config/index.config");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 function generateToken(user) {
@@ -8,7 +9,7 @@ function generateToken(user) {
     lastName: user.lastName,
     profilePic: user.image,
   };
-  const secretKey = crypto.randomBytes(32).toString("hex");
+  const secretKey = config.jwtSecretKey;
 
   const token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
 

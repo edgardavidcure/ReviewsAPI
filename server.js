@@ -15,6 +15,12 @@ dotenv.config({ path: "./.env" });
 
 const app = express();
 app.use(cors());
+app.use(
+  cors({
+    origin: "http:localhost:5173", // Replace with your frontend's URL
+    credentials: true, // Enable credentials (cookies, Authorization header)
+  })
+);
 app.use((req, res, next) => {
   res.header({
     "Access-Control-Allow-Origin": "*",
