@@ -12,12 +12,12 @@ const reviewSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  rate: {
+  rating: {
     type: Number,
     required: true,
   },
-  userId: {
-    type: String,
+  user: {
+    type: Object,
     required: true,
   },
 });

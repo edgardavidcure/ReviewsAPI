@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const passport = require("passport");
-const generateToken = require("../middleware/jwt.middleware");
+const { generateToken } = require("../middleware/jwt.middleware");
 
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
