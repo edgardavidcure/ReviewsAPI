@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const Reviews = require("../models/reviews.model");
 const { decodeToken } = require("../middleware/jwt.middleware");
+
 const getReviewsByProductId = async (req, res) => {
   try {
     const productId = req.params.productId;
+
     const reviews = await Reviews.find({ productId: productId });
     if (!reviews) {
       res
