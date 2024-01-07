@@ -1,7 +1,6 @@
 const config = require("../../src/config/index.config");
 const jwt = require("jsonwebtoken");
 const { jwtDecode } = require("jwt-decode");
-const crypto = require("crypto");
 function generateToken(user) {
   const payload = {
     userId: user.googleId,
