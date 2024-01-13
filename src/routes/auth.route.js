@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const passport = require("passport");
-const { generateToken } = require("../middleware/jwt.middleware");
+const {
+  generateToken,
+  authenticateJWT,
+} = require("../middleware/jwt.middleware");
 
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
@@ -27,9 +30,14 @@ router.get(
 );
 
 router.post("/logout", (req, res) => {
-  req.logOut();
-  res.cookie("jwt", "", { maxAge: "1" });
-  res.redirect("https://sleepout.netlify.app");
+  req.logout(function (err) {
+    if (err) {
+      return res.status(500).json({ error: "Internal Server Error" }).send();
+    } else {
+      res.clearCookie("jwt");
+      res.status(201).json({ message: "Logout succesful" });
+    }
+  });
 });
 
 module.exports = router;
