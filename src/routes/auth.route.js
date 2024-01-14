@@ -25,7 +25,7 @@ router.get(
       // Set the cookie
       res.cookie("jwt", jwtToken, {
         maxAge: 1 * 60 * 60 * 1000,
-        httpOnly: true,
+        httpOnly: false,
         path: "/",
         secure: true,
         sameSite: "none",
