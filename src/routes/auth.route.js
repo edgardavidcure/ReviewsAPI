@@ -23,6 +23,10 @@ router.get(
         sameSite: "none",
         domain: ".ec-sleepoutside.com",
       });
+      res.header({
+        "Access-Control-Allow-Origin": "https://ec-sleepoutside.com",
+      }),
+        res.header({ "Access-Control-Allow-Credentials": true });
       res.redirect("https://ec-sleepoutside.com/dashboard/");
     } catch (error) {
       res.status(400).json({
