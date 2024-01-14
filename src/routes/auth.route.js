@@ -15,6 +15,14 @@ router.get(
   (req, res) => {
     try {
       const jwtToken = generateToken(req.user);
+
+      // Set the CORS headers
+      res.header({
+        "Access-Control-Allow-Origin": "https://ec-sleepoutside.com",
+        "Access-Control-Allow-Credentials": true,
+      });
+
+      // Set the cookie
       res.cookie("jwt", jwtToken, {
         maxAge: 1 * 60 * 60 * 1000,
         httpOnly: true,
@@ -23,10 +31,8 @@ router.get(
         sameSite: "none",
         domain: ".ec-sleepoutside.com",
       });
-      res.header({
-        "Access-Control-Allow-Origin": "https://ec-sleepoutside.com",
-      }),
-        res.header({ "Access-Control-Allow-Credentials": true });
+
+      // Redirect
       res.redirect("https://ec-sleepoutside.com/dashboard/");
     } catch (error) {
       res.status(400).json({
