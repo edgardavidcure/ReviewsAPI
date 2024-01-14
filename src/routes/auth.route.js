@@ -16,9 +16,11 @@ router.get(
     try {
       const jwtToken = generateToken(req.user);
       res.cookie("jwt", jwtToken, {
-        httpOnly: false,
         maxAge: 1 * 60 * 60 * 1000,
-        domain: "https://sleepout.netlify.app/",
+        httpOnly: true,
+        path: "/",
+        secure: true,
+        sameSite: "none",
       });
       res.redirect("https://sleepout.netlify.app/dashboard/");
     } catch (error) {
