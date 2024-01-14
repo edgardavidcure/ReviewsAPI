@@ -15,7 +15,6 @@ dotenv.config({ path: "./.env" });
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 app.use(
   cors({
     origin: "https://ec-sleepoutside.com", // Replace with your frontend's URL
@@ -26,15 +25,10 @@ app.use((req, res, next) => {
   res.header({
     "Access-Control-Allow-Headers":
       "Origin, X-Requested-With, Content-Type, Accept, Z-Key",
-  });
-  res.header({
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-  });
-  res.header({
     "Access-Control-Allow-Origin": "https://ec-sleepoutside.com",
-  }),
-    res.header({ "Access-Control-Allow-Credentials": true });
-
+    "Access-Control-Allow-Credentials": true,
+  });
   next();
 });
 
