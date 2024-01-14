@@ -10,7 +10,7 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "https://sleepout.netlify.app",
+    failureRedirect: "https://ec-sleepoutside.com",
   }),
   (req, res) => {
     try {
@@ -21,9 +21,9 @@ router.get(
         path: "/",
         secure: true,
         sameSite: "none",
-        domain: ".netlify.app",
+        domain: ".ec-sleepoutside.com",
       });
-      res.redirect("https://sleepout.netlify.app/dashboard/");
+      res.redirect("https://ec-sleepoutside.com/dashboard/");
     } catch (error) {
       res.status(400).json({
         message: "User Not Authenticated",
