@@ -21,6 +21,7 @@ router.get(
         path: "/",
         secure: true,
         sameSite: "none",
+        domain: ".netlify.app",
       });
       res.redirect("https://sleepout.netlify.app/dashboard/");
     } catch (error) {
