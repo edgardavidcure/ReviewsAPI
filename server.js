@@ -38,6 +38,10 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({ uri: config.databaseURL, collection: "sessions" }),
+    cookie: {
+      sameSite: "none",
+      secure: true,
+    },
   })
 );
 

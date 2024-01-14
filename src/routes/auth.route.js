@@ -33,7 +33,7 @@ router.get(
       });
 
       // Redirect
-      res.redirect("https://ec-sleepoutside.com/dashboard/");
+      res.redirect("https://ec-sleepoutside.com/dashboard");
     } catch (error) {
       res.status(400).json({
         message: "User Not Authenticated",
