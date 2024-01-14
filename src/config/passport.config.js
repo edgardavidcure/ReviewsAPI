@@ -8,7 +8,7 @@ module.exports = function (passport) {
       {
         clientID: config.googleClientId,
         clientSecret: config.googleClientSecret,
-        callbackURL: "https://reviewsapi-q8wy.onrender.com/google/callback",
+        callbackURL: "https://api.ec-sleepoutside.com/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
         const newUser = {
