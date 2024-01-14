@@ -19,7 +19,7 @@ router.get(
         httpOnly: false,
         maxAge: 1 * 60 * 60 * 1000,
       });
-      res.redirect("http://localhost:5173/dashboard/index.html");
+      res.redirect("https://sleepout.netlify.app/dashboard/");
     } catch (error) {
       res.status(400).json({
         message: "User Not Authenticated",

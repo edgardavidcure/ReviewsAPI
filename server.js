@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cors());
 app.use(
   cors({
-    origin: "http:localhost:5173", // Replace with your frontend's URL
+    origin: "https://sleepout.netlify.app/", // Replace with your frontend's URL
     credentials: true, // Enable credentials (cookies, Authorization header)
   })
 );

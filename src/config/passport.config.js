@@ -8,7 +8,7 @@ module.exports = function (passport) {
       {
         clientID: config.googleClientId,
         clientSecret: config.googleClientSecret,
-        callbackURL: "http://localhost:3000/google/callback",
+        callbackURL: "https://reviewsapi-q8wy.onrender.com/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
         const newUser = {
